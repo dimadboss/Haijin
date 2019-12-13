@@ -4,16 +4,11 @@ import keyboards
 from telebot import types
 
 haijin = telebot.TeleBot(constraints.token)
+haijin_keyboard = keyboards.keyboard1
 
-#keyboard1 = telebot.types.ReplyKeyboardMarkup()
-#keyboard1.add('Топ-10 хокку', 'IT-хокку по слову')
-#keyboard1.add('О хокку', 'Топ-10 слов для хокку')
-#keyboard1.add('О разработчиках', 'Помощь')
-
-#bot_keyboard = keyboards.keyboard1
 @haijin.message_handler(commands=['start'])
 def first_start(message):
-    haijin.send_message(message.chat.id, "Привет! Наш бот генерирует IT-хокку. Напиши /help для помощи или воспользуйся клавиатурой!") # reply_markup=bot_keyboard)
+    haijin.send_message(message.chat.id, "Привет! Наш бот генерирует IT-хокку. Напиши /help для помощи или воспользуйся клавиатурой!", reply_markup=haijin_keyboard)
 
 @haijin.message_handler(commands=['help'])
 def help_protocol(message):
