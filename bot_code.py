@@ -12,7 +12,12 @@ def first_start(message):
 
 @haijin.message_handler(commands=['help'])
 def help_protocol(message):
-    haijin.send_message(message.chat.id, "FIX ME!")
+    haijin.send_message(message.chat.id, '/tophaiku - **Напечатать 10 популярных хокку**\n' +
+                                         '/gethaiku - **Сгененировать хокку по заданному слову**\n' +
+                                         '/abouthaiku - **Выдать информацию о хокку**\n' +
+                                         '/topword - **Выдать 10 наиболее популярных слов для хокку**\n' +
+                                         '/developers - **Выдать информацию о разработчиках**\n' +
+                                         '/gitrep - **Перейти в репозиторий бота на Github**\n')
 
 
 @haijin.message_handler(content_types=['text'])
@@ -26,7 +31,7 @@ def send_text(message):
     elif message.text.lower() == 'топ-10 слов для хокку' or message.text.lower() == '/topword':
         haijin.send_message(message.chat.id, '**Выдать 10 наиболее популярных слов для хокку**')
     elif message.text.lower() == 'о разработчиках':
-        haijin.send_message(message.chat.id, '**Выдать информацию о нас**')
+        haijin.send_message(message.chat.id, '**Выдать информацию о разработчиках**')
     elif message.text.lower() == 'помощь':
         haijin.send_message(message.chat.id, '''/tophaiku — узнать 10 лучших хокку на IT-тематику \n
 /gethaiku — сгенерировать хокку на IT-тематику по слову \n
