@@ -32,6 +32,8 @@ def send_text(message):
         haijin.send_message(message.chat.id, '**Выдать информацию о хокку**')
     elif message.text.lower() == 'топ-10 слов для хокку' or message.text.lower() == '/topword':
         haijin.send_message(message.chat.id, '**Выдать 10 наиболее популярных слов для хокку**')
+    elif message.text.lower() == 'перейти в репозиторий бота на github' or message.text.lower() == '/gitrep':
+        bot_keyboard(message)
     elif message.text.lower() == 'о разработчиках':
         haijin.send_message(message.chat.id, '**Выдать информацию о разработчиках**')
     elif message.text.lower() == 'помощь':
@@ -48,7 +50,7 @@ def send_text(message):
 def sticker_id(message):
     print(message)
 
-@haijin.message_handler(content_types=['text'])
+@haijin.message_handler(content_types=['/gitrep'])
 def bot_keyboard(message):
     keyboard = types.InlineKeyboardMarkup()
     git_button = types.InlineKeyboardButton(text = 'Перейти в репозиторий проекта на GitHub', url = "https://github.com/DdiavaLL/MyHaikuBot")
