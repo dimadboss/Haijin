@@ -1,5 +1,6 @@
 import telebot
 import constraints
+import functions
 import keyboards
 from telebot import types
 
@@ -23,7 +24,8 @@ def help_protocol(message):
 @haijin.message_handler(content_types=['text'])
 def send_text(message):
     if message.text.lower() == 'топ-10 хокку' or message.text.lower() == '/tophaiku':
-        haijin.send_message(message.chat.id, '**Напечатать 10 популярных хокку**')
+        rez = functions.top_haiku()
+        haijin.send_message(message.chat.id, rez)
     elif message.text.lower() == 'it-хокку по слову' or message.text.lower() == '/gethaiku':
         haijin.send_message(message.chat.id, '**Сгененировать хокку по заданному слову**')
     elif message.text.lower() == 'о хокку' or message.text.lower() == '/abouthaiku':
