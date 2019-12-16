@@ -20,6 +20,9 @@ def help_protocol(message):
                                          '/developers - **Выдать информацию о разработчиках**\n' +
                                          '/gitrep - **Перейти в репозиторий бота на Github**\n')
 
+@haijin.message_handler(commands=['about'])
+def help_protocol(message):
+    haijin.send_message(message.chat.id, about())
 
 @haijin.message_handler(content_types=['text'])
 def send_text(message):
