@@ -22,7 +22,7 @@ def help_protocol(message):
 
 @haijin.message_handler(commands=['about'])
 def help_protocol(message):
-    haijin.send_message(message.chat.id, about())
+    haijin.send_message(message.chat.id, functions.about())
 
 @haijin.message_handler(content_types=['text'])
 def send_text(message):
@@ -38,7 +38,8 @@ def send_text(message):
     elif message.text.lower() == 'перейти в репозиторий бота на github' or message.text.lower() == '/gitrep':
         bot_keyboard(message)
     elif message.text.lower() == 'о разработчиках':
-        haijin.send_message(message.chat.id, '**Выдать информацию о разработчиках**')
+        help_prot = functions.about()
+        haijin.send_message(message.chat.id, help_prot)
     elif message.text.lower() == 'помощь':
         haijin.send_message(message.chat.id, '''/tophaiku — узнать 10 лучших хокку на IT-тематику \n
 /gethaiku — сгенерировать хокку на IT-тематику по слову \n
