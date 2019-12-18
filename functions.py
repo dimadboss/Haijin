@@ -1,6 +1,6 @@
 import telebot
 
-def top_word():
+def top_words():
 	return ("1) Код \n"+
 			"2) Программа \n"+
 			"3) Функция \n"+

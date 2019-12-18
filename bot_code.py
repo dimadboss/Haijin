@@ -35,8 +35,8 @@ def send_text(message):
     elif message.text.lower() == 'о хокку' or message.text.lower() == '/abouthaiku':
         ab_haiku = functions.about_haiku()
         haijin.send_message(message.chat.id, ab_haiku)
-    elif message.text.lower() == 'топ-10 слов для хокку' or message.text.lower() == '/topword':
-        haijin.send_message(message.chat.id, functions.top_word())
+    elif message.text.lower() == 'топ-10 слов для хокку' or message.text.lower() == '/topwords':
+        haijin.send_message(message.chat.id, functions.top_words())
     elif message.text.lower() == 'перейти в репозиторий бота на GitHub' or message.text.lower() == '/gitrep':
         bot_keyboard(message)
     elif message.text.lower() == 'о разработчиках' or message.text.lower() == '/aboutus':
