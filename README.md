@@ -1,5 +1,5 @@
 # Haijin
-### Информация
+### Информация.
 ![Скриншот 1](https://github.com/DdiavaLL/Haijin/blob/master/images/first.png)
 
 Данный бот генерирует IT-хокку!
