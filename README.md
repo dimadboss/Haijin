@@ -6,7 +6,7 @@
 Чтобы начать работу найдите его по username'у: @mmcs_lingvo_bot.
 
 ### Возможности бота.
-![Скриншот 2](https://github.com/DdiavaLL/Haijin/blob/master/images/second.jpeg)
+![Скриншот 2](https://github.com/DdiavaLL/Haijin/blob/master/images/second.jpg)
 
 Список команд:
 
