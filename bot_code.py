@@ -23,7 +23,7 @@ def help_protocol(message):
 
 @haijin.message_handler(commands=['about'])
 def help_protocol(message):
-    haijin.send_message(message.chat.id, functions.about())
+    haijin.send_message(message.chat.id, functions.about_us())
 
 @haijin.message_handler(content_types=['text'])
 def send_text(message):
@@ -31,12 +31,12 @@ def send_text(message):
         rez = functions.top_haiku()
         haijin.send_message(message.chat.id, rez)
     elif message.text.lower() == 'it-хокку по слову' or message.text.lower() == '/gethaiku':
-        haijin.send_message(message.chat.id, '**Сгененировать хокку по заданному слову**')
+        haijin.send_message(message.chat.id, '**Функционал в стадии тестирования.**')
     elif message.text.lower() == 'о хокку' or message.text.lower() == '/abouthaiku':
         ab_haiku = functions.about_haiku()
         haijin.send_message(message.chat.id, ab_haiku)
     elif message.text.lower() == 'топ-10 слов для хокку' or message.text.lower() == '/topword':
-        haijin.send_message(message.chat.id, '**Выдать 10 наиболее популярных слов для хокку**')
+        haijin.send_message(message.chat.id, functions.top_word())
     elif message.text.lower() == 'перейти в репозиторий бота на GitHub' or message.text.lower() == '/gitrep':
         bot_keyboard(message)
     elif message.text.lower() == 'о разработчиках' or message.text.lower() == '/aboutus':
