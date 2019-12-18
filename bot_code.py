@@ -1,10 +1,10 @@
 import telebot
-import constraints
+#import constraints
 import functions
 import keyboards
 from telebot import types
 
-haijin = telebot.TeleBot(constraints.token)
+haijin = telebot.TeleBot("1057031205:AAEHA6rYDJSzNFkR6kqu5jVUaGfghbQVy1k")
 haijin_keyboard = keyboards.keyboard1
 
 @haijin.message_handler(commands=['start'])
