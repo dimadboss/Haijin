@@ -14,7 +14,7 @@ def first_start(message):
 @haijin.message_handler(commands=['help'])
 def help_protocol(message):
     haijin.send_message(message.chat.id, '''/tophaiku — узнать 10 лучших хокку на IT-тематику. \n
-/gethaiku — сгенерировать хокку на IT-тематику по слову. \n
+/gethaiku — сгенерировать случайное хокку на IT-тематику. \n
 /abouthaiku — узнать подробнее о хокку. \n
 /topwords — узнать 10 лучших слов для хокку. \n
 /aboutus — узнать подробнее о разработчиках. \n
@@ -34,7 +34,7 @@ def send_text(message):
     if message.text.lower() == 'топ-10 хокку' or message.text.lower() == '/tophaiku':
         rez = functions.top_haiku()
         haijin.send_message(message.chat.id, rez)
-    elif message.text.lower() == 'it-хокку по слову' or message.text.lower() == '/gethaiku':
+    elif message.text.lower() == 'случайное it-хокку' or message.text.lower() == '/gethaiku':
         haijin.send_message(message.chat.id, 'Функционал в стадии тестирования.')
     elif message.text.lower() == 'о хокку' or message.text.lower() == '/abouthaiku':
         ab_haiku = functions.about_haiku()
