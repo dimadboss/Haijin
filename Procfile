@@ -1,2 +1,1 @@
-web: python3 bot_code.py
-
+worker: python3 bot_code.py $PORT
