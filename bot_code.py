@@ -51,7 +51,7 @@ def send_text(message):
     elif message.text.lower() == 'помощь':
         haijin.send_message(message.chat.id,
     '''/tophaiku — узнать 10 лучших хокку на IT-тематику. \n
-/gethaiku — сгенерировать хокку на IT-тематику по слову. \n
+/gethaiku — сгенерировать случайное хокку на IT-тематику. \n
 /abouthaiku — узнать подробнее о хокку. \n
 /topwords — узнать 10 лучших слов для хокку. \n
 /aboutus — узнать подробнее о разработчиках. \n
