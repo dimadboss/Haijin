@@ -22,6 +22,8 @@ def help_protocol(message):
 /topwords — узнать 10 лучших слов для хокку. \n
 /aboutus — узнать подробнее о разработчиках. \n
 /gitrep — перейти в репозиторий проекта на GitHub. \n
+/greathaijins — подробнее о известных хайдзинах. \n 
+/start — обновить бота, если не работают некоторые возможности. \n
 ''')
 
 @haijin.message_handler(commands=['aboutus'])
