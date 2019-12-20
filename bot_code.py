@@ -1,4 +1,6 @@
+# -*- coding: utf-8 -*-
 import telebot
+import os
 #import constraints
 import functions
 import keyboards
@@ -29,13 +31,25 @@ def help_protocol(message):
 def help_protocol(message):
     haijin.send_message(message.chat.id, functions.top_word())
 
+@haijin.message_handler(commands=['gethaiku'])
+def help_protocol(message):
+    os.system(r"Hokku\Hokku Hokku\markov-wp.json Hokku\out.txt")
+    handle = open(r"Hokku\out.txt", "r", encoding="utf-8")
+    data = handle.read()
+    haijin.send_message(message.chat.id, data)
+    handle.close()
+
 @haijin.message_handler(content_types=['text'])
 def send_text(message):
     if message.text.lower() == 'топ-10 хокку' or message.text.lower() == '/tophaiku':
         rez = functions.top_haiku()
         haijin.send_message(message.chat.id, rez)
     elif message.text.lower() == 'случайное it-хокку' or message.text.lower() == '/gethaiku':
-        haijin.send_message(message.chat.id, 'Функционал в стадии тестирования.')
+        os.system(r"Hokku\Hokku Hokku\markov-wp.json Hokku\out.txt")
+        handle = open(r"Hokku\out.txt", "r", encoding="utf-8")
+        data = handle.read()
+        haijin.send_message(message.chat.id, data)
+        handle.close()
     elif message.text.lower() == 'о хокку' or message.text.lower() == '/abouthaiku':
         ab_haiku = functions.about_haiku()
         haijin.send_message(message.chat.id, ab_haiku)
