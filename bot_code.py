@@ -69,7 +69,8 @@ def send_text(message):
         haijins_keyboard(message)
     elif message.text.lower() == 'помощь':
         haijin.send_message(message.chat.id,
-    '''/tophaiku — узнать 10 лучших хокку на IT-тематику. \n
+    '''/start — обновить клавиатуру, если не работают некоторые возможности бота. \n
+/tophaiku — узнать 10 лучших хокку на IT-тематику. \n
 /gethaiku — сгенерировать случайное хокку на IT-тематику. \n
 /abouthaiku — узнать подробнее о хокку. \n
 /topwords — узнать 10 лучших слов для хокку. \n
