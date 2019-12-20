@@ -6,7 +6,7 @@ import functions
 import keyboards
 from telebot import types
 import time
-haijin = telebot.TeleBot("1057031205:AAEHA6rYDJSzNFkR6kqu5jVUaGfghbQVy1k")
+haijin = telebot.TeleBot("")
 haijin_keyboard = keyboards.keyboard1
 
 @haijin.message_handler(commands=['start'])
