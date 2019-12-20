@@ -27,6 +27,7 @@ def help_protocol(message):
 def help_protocol(message):
     haijin.send_message(message.chat.id, functions.about_us())
 
+
 @haijin.message_handler(commands=['topwords'])
 def help_protocol(message):
     haijin.send_message(message.chat.id, functions.top_word())
@@ -38,6 +39,7 @@ def help_protocol(message):
     data = handle.read()
     haijin.send_message(message.chat.id, data)
     handle.close()
+
 
 @haijin.message_handler(content_types=['text'])
 def send_text(message):
@@ -54,7 +56,7 @@ def send_text(message):
         ab_haiku = functions.about_haiku()
         haijin.send_message(message.chat.id, ab_haiku)
     elif message.text.lower() == 'топ-10 слов для хокку' or message.text.lower() == '/topword':
-        haijin.send_message(message.chat.id, functions.top_word())
+        haijin.send_message(message.chat.id, functions.top_words())
     elif message.text.lower() == 'перейти в репозиторий бота на GitHub' or message.text.lower() == '/gitrep':
         bot_keyboard(message)
     elif message.text.lower() == 'о разработчиках' or message.text.lower() == '/aboutus':
