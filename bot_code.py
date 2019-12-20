@@ -5,8 +5,8 @@ import os
 import functions
 import keyboards
 from telebot import types
-
-haijin = telebot.TeleBot("")
+import time
+haijin = telebot.TeleBot("1057031205:AAEHA6rYDJSzNFkR6kqu5jVUaGfghbQVy1k")
 haijin_keyboard = keyboards.keyboard1
 
 @haijin.message_handler(commands=['start'])
@@ -30,7 +30,7 @@ def help_protocol(message):
 
 @haijin.message_handler(commands=['topwords'])
 def help_protocol(message):
-    haijin.send_message(message.chat.id, functions.top_word())
+    haijin.send_message(message.chat.id, functions.top_words())
 
 @haijin.message_handler(commands=['gethaiku'])
 def help_protocol(message):
@@ -55,7 +55,7 @@ def send_text(message):
     elif message.text.lower() == 'о хокку' or message.text.lower() == '/abouthaiku':
         ab_haiku = functions.about_haiku()
         haijin.send_message(message.chat.id, ab_haiku)
-    elif message.text.lower() == 'топ-10 слов для хокку' or message.text.lower() == '/topword':
+    elif message.text.lower() == 'топ-10 популярных слов' or message.text.lower() == '/topword':
         haijin.send_message(message.chat.id, functions.top_words())
     elif message.text.lower() == 'перейти в репозиторий бота на GitHub' or message.text.lower() == '/gitrep':
         bot_keyboard(message)
