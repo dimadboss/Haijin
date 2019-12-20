@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 import telebot
 import os
-#import constraints
+import constraints
 import functions
 import keyboards
 from telebot import types
 import time
-haijin = telebot.TeleBot("")
+
+haijin = telebot.TeleBot(constraints.token)
 haijin_keyboard = keyboards.keyboard1
 
 @haijin.message_handler(commands=['start'])
@@ -21,6 +22,8 @@ def help_protocol(message):
 /topwords — узнать 10 лучших слов для хокку. \n
 /aboutus — узнать подробнее о разработчиках. \n
 /gitrep — перейти в репозиторий проекта на GitHub. \n
+/greathaijins — подробнее о известных хайдзинах. \n 
+/start — обновить бота, если не работают некоторые возможности. \n
 ''')
 
 @haijin.message_handler(commands=['aboutus'])
@@ -45,7 +48,9 @@ def help_protocol(message):
 def send_text(message):
     if message.text.lower() == 'топ-10 хокку' or message.text.lower() == '/tophaiku':
         rez = functions.top_haiku()
+        rez2 = functions.toph_haiku2()
         haijin.send_message(message.chat.id, rez)
+        haijin.send_message(message.chat.id, rez2)
     elif message.text.lower() == 'случайное it-хокку' or message.text.lower() == '/gethaiku':
         os.system(r"Hokku\Hokku Hokku\markov-wp.json Hokku\out.txt")
         handle = open(r"Hokku\out.txt", "r", encoding="utf-8")
@@ -55,7 +60,7 @@ def send_text(message):
     elif message.text.lower() == 'о хокку' or message.text.lower() == '/abouthaiku':
         ab_haiku = functions.about_haiku()
         haijin.send_message(message.chat.id, ab_haiku)
-    elif message.text.lower() == 'топ-10 популярных слов' or message.text.lower() == '/topword':
+    elif message.text.lower() == 'топ-10 популярных слов' or message.text.lower() == '/topwords':
         haijin.send_message(message.chat.id, functions.top_words())
     elif message.text.lower() == 'перейти в репозиторий бота на GitHub' or message.text.lower() == '/gitrep':
         bot_keyboard(message)
@@ -72,6 +77,8 @@ def send_text(message):
 /topwords — узнать 10 лучших слов для хокку. \n
 /aboutus — узнать подробнее о разработчиках. \n
 /gitrep — перейти в репозиторий проекта на GitHub. \n
+/greathaijins — подробнее о известных хайдзинах. \n 
+/start — обновить бота, если не работают некоторые возможности. \n
 ''')
     else:
         haijin.send_message(message.chat.id, 'Неверная команда')

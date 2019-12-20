@@ -7,7 +7,7 @@
 Чтобы начать работу найдите его по username'у: @mmcs_lingvo_bot.
 
 ### Возможности бота.
-![Скриншот 2](https://github.com/DdiavaLL/Haijin/blob/master/images/second.jpg)
+![Скриншот 2](https://github.com/DdiavaLL/Haijin/blob/master/images/secondv2.jpg)
 
 Список команд:
 
@@ -22,6 +22,10 @@
 /aboutus — узнать подробнее о разработчиках.
 
 /gitrep — перейти в репозиторий проекта на GitHub.
+
+/greathaijins — подробнее о известных хайдзинах.
+
+/start — обновить бота, если не работают некоторые возможности.
 
 ### О разработчиках.
 Проект выполнен студентами 3 курса ИММиКН ЮФУ.
