@@ -1,1 +1,4 @@
-/constraints.py
+__pycache__/
+venv/
+.idea/
+.git/

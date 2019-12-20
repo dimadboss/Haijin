@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
 import telebot
-import constraints
+import os
+#import constraints
 import functions
 import keyboards
 from telebot import types
-
-haijin = telebot.TeleBot(constraints.token)
+import time
+haijin = telebot.TeleBot("")
 haijin_keyboard = keyboards.keyboard1
 
 @haijin.message_handler(commands=['start'])
@@ -14,28 +16,46 @@ def first_start(message):
 @haijin.message_handler(commands=['help'])
 def help_protocol(message):
     haijin.send_message(message.chat.id, '''/tophaiku — узнать 10 лучших хокку на IT-тематику. \n
-/gethaiku — сгенерировать хокку на IT-тематику по слову. \n
+/gethaiku — сгенерировать случайное хокку на IT-тематику. \n
 /abouthaiku — узнать подробнее о хокку. \n
 /topwords — узнать 10 лучших слов для хокку. \n
 /aboutus — узнать подробнее о разработчиках. \n
 /gitrep — перейти в репозиторий проекта на GitHub. \n
 ''')
 
-@haijin.message_handler(commands=['about'])
+@haijin.message_handler(commands=['aboutus'])
 def help_protocol(message):
     haijin.send_message(message.chat.id, functions.about_us())
+
+
+@haijin.message_handler(commands=['topwords'])
+def help_protocol(message):
+    haijin.send_message(message.chat.id, functions.top_words())
+
+@haijin.message_handler(commands=['gethaiku'])
+def help_protocol(message):
+    os.system(r"Hokku\Hokku Hokku\markov-wp.json Hokku\out.txt")
+    handle = open(r"Hokku\out.txt", "r", encoding="utf-8")
+    data = handle.read()
+    haijin.send_message(message.chat.id, data)
+    handle.close()
+
 
 @haijin.message_handler(content_types=['text'])
 def send_text(message):
     if message.text.lower() == 'топ-10 хокку' or message.text.lower() == '/tophaiku':
         rez = functions.top_haiku()
         haijin.send_message(message.chat.id, rez)
-    elif message.text.lower() == 'it-хокку по слову' or message.text.lower() == '/gethaiku':
-        haijin.send_message(message.chat.id, '**Функционал в стадии тестирования.**')
+    elif message.text.lower() == 'случайное it-хокку' or message.text.lower() == '/gethaiku':
+        os.system(r"Hokku\Hokku Hokku\markov-wp.json Hokku\out.txt")
+        handle = open(r"Hokku\out.txt", "r", encoding="utf-8")
+        data = handle.read()
+        haijin.send_message(message.chat.id, data)
+        handle.close()
     elif message.text.lower() == 'о хокку' or message.text.lower() == '/abouthaiku':
         ab_haiku = functions.about_haiku()
         haijin.send_message(message.chat.id, ab_haiku)
-    elif message.text.lower() == 'топ-10 слов для хокку' or message.text.lower() == '/topwords':
+    elif message.text.lower() == 'топ-10 популярных слов' or message.text.lower() == '/topword':
         haijin.send_message(message.chat.id, functions.top_words())
     elif message.text.lower() == 'перейти в репозиторий бота на GitHub' or message.text.lower() == '/gitrep':
         bot_keyboard(message)
@@ -47,14 +67,14 @@ def send_text(message):
     elif message.text.lower() == 'помощь':
         haijin.send_message(message.chat.id,
     '''/tophaiku — узнать 10 лучших хокку на IT-тематику. \n
-/gethaiku — сгенерировать хокку на IT-тематику по слову. \n
+/gethaiku — сгенерировать случайное хокку на IT-тематику. \n
 /abouthaiku — узнать подробнее о хокку. \n
 /topwords — узнать 10 лучших слов для хокку. \n
 /aboutus — узнать подробнее о разработчиках. \n
 /gitrep — перейти в репозиторий проекта на GitHub. \n
 ''')
     else:
-        haijin.send_message(message.chat.id, '**Неверная команда**')
+        haijin.send_message(message.chat.id, 'Неверная команда')
 
 
 @haijin.message_handler(content_types=['sticker'])
